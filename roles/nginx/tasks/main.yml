@@ -1,0 +1,20 @@
+---
+- name: Install nginx
+  apt: name=nginx state=present
+
+- name: Copy nginx configuration
+  template: src=default.conf dest=/etc/nginx/sites-available/default
+  notify: restart nginx
+
+- name: Create nginx.service
+  copy: src=nginx.service dest=/etc/systemd/system/nginx.service mode=0755
+
+- name: Update rc.d
+  command: >
+    update-rc.d nginx defaults
+
+- name: systemd daemon-reload
+  shell: systemctl daemon-reload
+
+- name: Start nginx
+  service: name=nginx state=started enabled=yes

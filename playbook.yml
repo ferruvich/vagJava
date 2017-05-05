@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: true
+  vars:
+      home: /home/vagrant
+      document_root: /vagrant
+      os: ubuntu
+      osversioncode: xenial
+      http_port: 8080
+      jetty_port: 8090
+      https_port: 8443
+      admin_username: admin
+      admin_password: adminsecret
+  pre_tasks:
+      - name: Symlink sh to bash rather than dash
+        file: src=/bin/bash dest=/bin/sh state=link force=true
+      - name: Update apt cache and optionally upgrade
+        apt:
+          update_cache=yes
+          cache_valid_time=7200
+          #upgrade=yes # Uncomment this to force full upgrade!
+      - name: Install stuff from Aptitude
+        apt: name={{ item }} state=installed
+        with_items:
+         - git
+         - tig
+         - vim
+         - gdb
+         - cgdb
+         - bash-completion
+         - make
+         - tree
+         - htop
+         - tmux
+         - man-db
+         - maven
+  roles:
+    - { role: tomcat7, become: true }
+    - { role: nginx, become: true}
+    - { role: jetty, become: true, jetty_port=8090}
+    - { role: postgresql, become: true}

@@ -1,0 +1,7 @@
+*.vagrant
+.vagrant
+.vagrant/machines/virtualbox/virtualbox
+*.log
+*.retry
+www/html/*
+www/cumlaude-italia/*

@@ -1,0 +1,9 @@
+Una volta aperta la vagrant
+
+- Installa Jetty;
+- Installa postgresql
+    sudo apt-get install postgresql postgresql-contrib;
+    sistemalo addando un db e uno user chiamati cumlaude, pass: password
+- stoppa nginx & tomcat;
+- vai su www, esporta la libreria di unicredit in questo modo:
+    mvn install:install-file -Dfile=<path-to-file>/IGFS_CG_API-2.2.9.jar -DgroupId=unicredit -DartifactId=it.netsw -Dversion=2.2.9 -Dpackaging=jar
