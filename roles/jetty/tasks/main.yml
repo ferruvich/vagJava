@@ -25,14 +25,14 @@
   when: jetty_user_create
 
 - name: Unpack distribution
-  shell: "tar zxf {{ jetty_src_dir }}/jetty-distribution-{{ jetty_version }}.tar.gz && chown -R {{ jetty_user_login }}:{{ jetty_group_name}} jetty-distribution-{{ jetty_version }}"
+  shell: "tar zxf {{ jetty_src_dir }}/jetty-distribution-9.3.14.v20161028.tar.gz && chown -R {{ jetty_user_login }}:{{ jetty_group_name}} jetty-distribution-9.3.14.v20161028"
   args:
     chdir: "{{ jetty_dst_dir }}"
-    creates: "{{ jetty_dst_dir}}/jetty-distribution-{{ jetty_version }}"
+    creates: "{{ jetty_dst_dir}}/jetty-distribution-9.3.14.v20161028"
 
 - name: Create symbolic link to distribution
   file:
-    src="{{ jetty_dst_dir }}/jetty-distribution-{{ jetty_version}}"
+    src="{{ jetty_dst_dir }}/jetty-distribution-9.3.14.v20161028"
     dest={{ jetty_dst_dir }}/jetty
     state=link
 

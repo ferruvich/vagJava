@@ -35,7 +35,6 @@
          - man-db
          - maven
   roles:
-    - { role: tomcat7, become: true }
     - { role: nginx, become: true}
     - { role: jetty, become: true, jetty_port=8090}
     - { role: postgresql, become: true}
