@@ -32,8 +32,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Definitions user and passwd for the VirtualBox machine
     # --------------------------------------------------------------------
 
-      #vbox.ssh.username = "root"
-      #vbox.ssh.password = "vagrant"
+      vbox.ssh.username = "ubuntu"
+      vbox.ssh.password = "easynetwork"
 
     # --------------------------------------------------------------------
     # Definitions synced_folder for the VirtualBox machine
