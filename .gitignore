@@ -3,5 +3,6 @@
 .vagrant/machines/virtualbox/virtualbox
 *.log
 *.retry
+credentials/*
 www/html/*
 www/cumlaude-italia/*
