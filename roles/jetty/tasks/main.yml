@@ -1,4 +1,6 @@
 ---
+- name: Install Jdk
+  apt: name=openjdk-8-jdk-headless state=present
 
 - name: Download distribution tarball
   get_url:
